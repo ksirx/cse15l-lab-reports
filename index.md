@@ -16,7 +16,9 @@ In order to download VSCode, you need to go to this link, https://code.visualstu
 
 __3) Download Git__
 
+Git is a progeam that allows us as the user to have access to shell commands. Here is the website that I used to download Git as I am currently using a Windows device, https://gitforwindows.org/. The importance of downloading this is it will allow us to access our account remotely. With just VSCode, we cannot access the remote server.
 
+(picture of site where we download Git)
 
 __4) Connecting Remotely__
 
