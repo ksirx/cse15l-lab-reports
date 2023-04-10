@@ -38,7 +38,7 @@ You will then be prompted to enter a password which which you will enter the pas
 
 You have now successfully connected to the server!
 
-![Image](Screenshot (139).png)
+![Image](Screenshot (135).png)
 
 __5) Testing commands__
 
