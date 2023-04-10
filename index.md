@@ -12,11 +12,15 @@ This step is key because without your account, you wouldn't have anything to acc
 
 (picture of the creating password process)
 
+![Image](Screenshot (139).png)
+
 __2) Download VSCode__
 
 In order to download VSCode, you need to go to this link, https://code.visualstudio.com/download, and select the apporpriate options that apply to whatever device you are using. Just follow the steps that are on screen and you should be good to go for the next step. If using the CSE lab computers, VSCode may already be installed. This is the program we will be using to in order to access the terminal.
 
 (picture of VSCode open)
+
+![Image](Screenshot (138).png)
 
 __3) Download Git__
 
@@ -24,17 +28,21 @@ Git is a progeam that allows us as the user to have access to shell commands. He
 
 (picture of site where we download Git)
 
+![Image](Screenshot (140).png)
+
 __4) Connecting Remotely__
 
 To connect remotely, you first need to open up VSCode. In VSCode, you should be able to access the terminal where you want to input the command, $ ssh [USERNAME]@ieng6.ucsd.edu. From here, you should see a pop up asking whether you would like to connect. Enter, $ yes, to continue.
-
-(picture showing both things described)
 
 You will then be prompted to enter a password which which you will enter the password you created for step 1. Note: When entering the password, nothing will appear on the terminal line which is working as an intended security feature. Just enter the password and press enter.
 
 (image of password entering part)
 
+![Image](Screenshot (137).png)
+
 You have now successfully connected to the server!
+
+![Image](Screenshot (139).png)
 
 __5) Testing commands__
 
@@ -42,6 +50,10 @@ After connecting to the server, you will now have be able to access commands. In
 
 $ ls -lat
 
+![Image](Screenshot (144).png)
+
 $ ls -a
+
+![Image](Screenshot (143).png)
 
 This was a recap of you can connect to a remote server using ssh and git. Thank you for reading and I hope this was helpful!
