@@ -1,6 +1,6 @@
-Name: Xavier Navarro
+__Name: Xavier Navarro__
 
-CSE 15L
+__CSE 15L Lab 1 Report__
 
 A new skill that I learned during Wednesday's lab was how to remotely log into an ieng6 account. This skill opens the door many practical applications and will be a skill that is important to carry into the workforce. This comes in handy especially when you need to run commands or sift through files on your account. At UCSD, we use [ACCOUNTNAME]@ieng6.ucsd.edu.
 
