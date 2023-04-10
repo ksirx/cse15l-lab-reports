@@ -10,8 +10,6 @@ __1) Make sure you are able to access ieng6 account.__
 
 This step is key because without your account, you wouldn't have anything to access remotely. There should be an option where you are able sign in to an account using your PID and username (the line of text before the @ucsd.edu) to find your account that you will be using to connect remotely. In this process, you may have to create a passowrd if you haven't already done so. Your username should look like, cs15lsp23[2 unique letters]@ieng6.ucsd.edu.
 
-(picture of the creating password process)
-
 ![Image](Screenshot (139).png)
 
 __2) Download VSCode__
@@ -26,7 +24,6 @@ __3) Download Git__
 
 Git is a progeam that allows us as the user to have access to shell commands. Here is the website that I used to download Git as I am currently using a Windows device, https://gitforwindows.org/. The importance of downloading this is it will allow us to access our account remotely. With just VSCode alone, we cannot access the remote server.
 
-(picture of site where we download Git)
 
 ![Image](Screenshot (140).png)
 
@@ -36,7 +33,6 @@ To connect remotely, you first need to open up VSCode. In VSCode, you should be 
 
 You will then be prompted to enter a password which which you will enter the password you created for step 1. Note: When entering the password, nothing will appear on the terminal line which is working as an intended security feature. Just enter the password and press enter.
 
-(image of password entering part)
 
 ![Image](Screenshot (137).png)
 
