@@ -32,7 +32,7 @@ This is the website you can use to download Git for Windows.
 
 __4) Connecting Remotely__
 
-To connect remotely, you first need to open up VSCode. In VSCode, you should be able to access the terminal where you want to input the command, $ ssh [USERNAME]@ieng6.ucsd.edu. From here, you should see a pop up asking whether you would like to connect. Enter, $ yes, to continue.
+To connect remotely, you first need to open up VSCode. In VSCode, you should be able to access the terminal where you want to input the command, ```$ ssh [USERNAME]@ieng6.ucsd.edu```. From here, you should see a pop up asking whether you would like to connect. Enter, ```$ yes ```, to continue.
 
 You will then be prompted to enter a password which which you will enter the password you created for step 1. Note: When entering the password, nothing will appear on the terminal line which is working as an intended security feature. Just enter the password and press enter.
 
@@ -48,11 +48,15 @@ __5) Testing commands__
 
 After connecting to the server, you will now have be able to access commands. In order to utilize these commands, you just need to type into the terminal. Here are some examples of commands that you may find useful.
 
-$ ls -lat
+```$ ls -lat```
+
+This command displays the files in order using the "latest" categpory. In this image, you can see it start from April 9th, and as you go lower, the date goes back to April 5th.
 
 ![Image](Screenshot (144).png)
 
-$ ls -a
+```$ ls -a```
+
+This commmand displays all the files. You can see all the same files from last command, but not in any particular order. All files are listed in a consise manner.
 
 ![Image](Screenshot (143).png)
 
