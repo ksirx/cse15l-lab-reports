@@ -16,7 +16,7 @@ This is where you find your account and where you would constinue with changing 
 
 __2) Download VSCode__
 
-In order to download VSCode, you need to go to this link, https://code.visualstudio.com/download, and select the apporpriate options that apply to whatever device you are using. Just follow the steps that are on screen and you should be good to go for the next step. If using the CSE lab computers, VSCode may already be installed. This is the program we will be using to in order to access the terminal.
+In order to download VSCode, you need to go to this link, [https://code.visualstudio.com/download](https://code.visualstudio.com/download), and select the apporpriate options that apply to whatever device you are using. Just follow the steps that are on screen and you should be good to go for the next step. If using the CSE lab computers, VSCode may already be installed. This is the program we will be using to in order to access the terminal.
 
 Here is a picture of what you should see if you corectly downloaded VSCode.
 
@@ -24,7 +24,7 @@ Here is a picture of what you should see if you corectly downloaded VSCode.
 
 __3) Download Git__
 
-Git is a progeam that allows us as the user to have access to shell commands. Here is the website that I used to download Git as I am currently using a Windows device, https://gitforwindows.org/. The importance of downloading this is it will allow us to access our account remotely. With just VSCode alone, we cannot access the remote server.
+Git is a progeam that allows us as the user to have access to shell commands. Here is the website that I used to download Git as I am currently using a Windows device, [https://gitforwindows.org/](https://gitforwindows.org/). The importance of downloading this is it will allow us to access our account remotely. With just VSCode alone, we cannot access the remote server.
 
 This is the website you can use to download Git for Windows.
 
