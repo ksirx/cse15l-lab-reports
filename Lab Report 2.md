@@ -121,5 +121,9 @@ static void reverseInPlace(int[] arr) {
     }
   }
 ```
+One of the bugs that needed to be fixed was the code needed to run only to the middle index. If it ran all the way through, the needed change would be undone becasue once the code reached 4, it would be swapped with 2 again which impedes on the intended change. Also, there needs to be a temporary variable. This will allow us to properly change the value at ```arr[i]``` without losing the needed information needed to become equal to ```arr[arr.length - i - 1]```.
 
+__Part 3: What did I Learn?__
+
+Over these two labs, I would say I learned the most about servers and how they work. I already had some experience with JUnit in CSE 12 so I was already a little familiar with the approach I should take while debugging the code. Learning about servers on the other hand was much more confusing, but interesting to see how code directly interacts with a website controlled by a server.
 
