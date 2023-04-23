@@ -1,63 +1,128 @@
 __Name: Xavier Navarro__
 
-__CSE 15L Lab 1 Report__
+__CSE 15L Lab Report 2__
 
-A new skill that I learned during Wednesday's lab was how to remotely log into an ieng6 account. This skill opens the door many practical applications and will be a skill that is important to carry into the workforce. This comes in handy especially when you need to run commands or sift through files on your account. At UCSD, we use [ACCOUNTNAME]@ieng6.ucsd.edu.
+During week 2 lab, I learned about servers. Here is a short demonstration of how web servers work! 
 
-Here are some important steps you should follow in order to log into an ieng6 account.
+__Part 1: StringServer__
 
-__1) Make sure you are able to access ieng6 account.__
+Here is some code which adds strings over and over to a server using the ```\add-message?s=<string>``` as a path at the end of a url.
+```
+import java.io.IOException;
+import java.net.URI;
 
-This step is key because without your account, you wouldn't have anything to access remotely. There should be an option where you are able sign in to an account using your PID and username (the line of text before the @ucsd.edu) to find your account that you will be using to connect remotely. In this process, you may have to create a passowrd if you haven't already done so. Your username should look like, cs15lsp23[2 unique letters]@ieng6.ucsd.edu.
+class Handler implements URLHandler {
+    String message = "";
+    public String handleRequest(URI url) {
+        if (url.getPath().equals("/")) {
+            return String.format("%s", message);
+        } else {
+            System.out.println("Path: " + url.getPath());
+            if (url.getPath().contains("/add")) {
+                String[] parameters = url.getQuery().split("/");
+                for (int i = 0; i < parameters.length; i++) {
+                    String[] toAdd = parameters[i].split("=");
+                    message = message + toAdd[1] + "\n";
+                }
+                return String.format("%s\n", message);
+            }
+            return "404 Not Found!";
+        }
+    }
+}
 
-This is where you find your account and where you would constinue with changing passwords.
+class StringServer {
+    public static void main(String[] args) throws IOException {
+        if(args.length == 0){
+            System.out.println("Missing port number! Try any number between 1024 to 49151");
+            return;
+        }
 
-![Image](Screenshot (139).png)
+        int port = Integer.parseInt(args[0]);
 
-__2) Download VSCode__
+        Server.start(port, new Handler());
+    }
+}
+```
 
-In order to download VSCode, you need to go to this link, [https://code.visualstudio.com/download](https://code.visualstudio.com/download), and select the apporpriate options that apply to whatever device you are using. Just follow the steps that are on screen and you should be good to go for the next step. If using the CSE lab computers, VSCode may already be installed. This is the program we will be using to in order to access the terminal.
+This code results in something like this happening...
 
-Here is a picture of what you should see if you corectly downloaded VSCode.
+![Image](2023-04-22 (4).png)
 
-![Image](Screenshot (138).png)
+As you can see, the main method in the ServerString class takes in a integer between 1024 and 49151 and forms a link to the created server. In this example, I chose 1235 which can clearly be seen through the url. This change happens when ```Server.start(port, new Handler());``` is called. 
 
-__3) Download Git__
+You'll also notice that the string added to path specified earlier was added to the server itself. This occurs in the Handler class where the handleRequest method is called. It takes the url as an argument which in this case would be ```localhost:1235/add-messages?s=Hello```. In this code, the url is first split by ```/``` to isolate the path, then split by ```=``` to isolate the wanted term. This is then added to an empty string with the addition of ```\n``` to form a new line. When the site is updated, ```Hello``` will be shown on the server.
 
-Git is a progeam that allows us as the user to have access to shell commands. Here is the website that I used to download Git as I am currently using a Windows device, [https://gitforwindows.org/](https://gitforwindows.org/). The importance of downloading this is it will allow us to access our account remotely. With just VSCode alone, we cannot access the remote server.
+![Image](2023-04-22 (5).png)
 
-This is the website you can use to download Git for Windows.
+Similar to the first image, the same server is being used as the number after localhost is still the same.
 
-![Image](Screenshot (140).png)
+Different from the first image though, you'll see that ```localhost:1235/add-messages?s=this_works!``` is in the url instead. Also, the server still keeps the value of ```Hello```. Taking in the same arguement as before, ```this_works``` is the term that we will be adding to the server. The term ```Hello``` is still here because the empty string we appended it to from the last step still contains it. Thus, after ```Hello```, we have ```this_works!``` added to a new line right below it.
 
-__4) Connecting Remotely__
+__Part 2: Bugs__
 
-To connect remotely, you first need to open up VSCode. In VSCode, you should be able to access the terminal where you want to input the command, ```$ ssh [USERNAME]@ieng6.ucsd.edu```. From here, you should see a pop up asking whether you would like to connect. Enter, ```$ yes ```, to continue.
+The lab for week 3 was primarily focused on the utilization of JUnit and figuring out how to find bugs using it. 
+Here is an example of a buggy program that needs tweaking...
 
-You will then be prompted to enter a password which which you will enter the password you created for step 1. Note: When entering the password, nothing will appear on the terminal line which is working as an intended security feature. Just enter the password and press enter.
+_Buggy Code_
+```
+// Changes the input array to be in reversed order
+  static void reverseInPlace(int[] arr) {
+    for(int i = 0; i < arr.length; i += 1) {
+      arr[i] = arr[arr.length - i - 1];
+    }
+  }
+```
+Here are some example inputs...
 
-This is what the prompt will look like.
+_Failure-Inducing Input_
+```
+@Test 
+public void testReverseInPlace2() {
+    int[] input1 = { 1,2,3,4,5 };
+    ArrayExamples.reverseInPlace(input1);
+    assertArrayEquals(new int[]{ 5,4,3,2,1 }, input1);
+}
+```
+_Output_
+```
+arrays first differed at element [3]; expected:[2] but was:[4]
+ at ArrayTests.testReverseInPlace2(ArrayTests.java:16)
+Caused by: java.lang.AssertionError: expected:[2] but was:[4]
+```
 
-![Image](Screenshot (137).png)
+This code rightfully outputs an error. Notice how the error only occurs once we pass the halfway point of the array. The significance of this will be more clear once we see the proper fix to the code.
 
-After entering the password, a large chunk of text should pop up on the terminal and you have now successfully connected to the server!
+_Doesn't Induce Failure (BAD)_
+```
+@Test 
+public void testReverseInPlace1() {
+    int[] input1 = { 3 };
+    ArrayExamples.reverseInPlace(input1);
+    assertArrayEquals(new int[]{ 3 }, input1);
+	}
+```
+With just an array carrying just the integer 3, running the code will pass the JUnit test. This can cause confusion on if your code works as intended. Some tests may pass but it doesen't mean that your code is bug free. This is an example of why you should use multiple tests to reduce the liklihood of missing faulty code.
 
-![Image](Screenshot (135).png)
+_Symptom_
+Here is a screenshot of how running the code will look on VSCode.
 
-__5) Testing commands__
+![Image](2023-04-23.png)
 
-After connecting to the server, you will now have be able to access commands. In order to utilize these commands, you just need to type into the terminal. Here are some examples of commands that you may find useful.
+You can see that all but one tests passed. The one test that failed was the failure-inducing input shown earlier.
 
-```$ ls -lat```
+_Fixed Code_
+```
+static void reverseInPlace(int[] arr) {
+    for(int i = 0; i < arr.length / 2; i += 1) {
+      int temp = arr[i];
+      arr[i] = arr[arr.length - i - 1];
+      arr[arr.length - i -1] = temp;
+    }
+  }
+```
+One of the bugs that needed to be fixed was the code needed to run only to the middle index. If it ran all the way through, the needed change would be undone becasue once the code reached 4, it would be swapped with 2 again which impedes on the intended change. Also, there needs to be a temporary variable. This will allow us to properly change the value at ```arr[i]``` without losing the needed information needed to become equal to ```arr[arr.length - i - 1]```.
 
-This command displays the files in order using the "latest" categpory. In this image, you can see it start from April 9th, and as you go lower, the date goes back to April 5th.
+__Part 3: What did I Learn?__
 
-![Image](Screenshot (144).png)
-
-```$ ls -a```
-
-This commmand displays all the files. You can see all the same files from last command, but not in any particular order. All files are listed in a consise manner.
-
-![Image](Screenshot (143).png)
-
-This was a recap of you can connect to a remote server using ssh and git. Thank you for reading and I hope these steps were helpful with getting started with remote connection to your very own ieng6 account!
+Over these two labs, I would say I learned the most about servers and how they work. I already had some experience with JUnit in CSE 12 so I was already a little familiar with the approach I should take while debugging the code. Learning about servers on the other hand was much more confusing, but interesting to see how code directly interacts with a website controlled by a server.
