@@ -107,7 +107,9 @@ With just an array carrying just the integer 3, running the code will pass the J
 _Symptom_
 Here is a screenshot of how running the code will look on VSCode.
 
-![Image](2023-04-22 (2).png)
+![Image](2023-04-23.png)
+
+You can see that all but one tests passed. The one test that failed was the failure-inducing input shown earlier.
 
 _Fixed Code_
 ```
