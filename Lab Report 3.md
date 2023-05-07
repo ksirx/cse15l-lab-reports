@@ -20,7 +20,7 @@ IMG
 
 Similar to the last example, the command ```$ grep -w "weather" */*``` was used. This command looks for all instances of the word "weather" and returns it to the terminal.
 
-I learned about this variation through this website: https://www.geeksforgeeks.org/grep-command-in-unixlinux/.
+I learned about this variation through this website: [https://www.geeksforgeeks.org/grep-command-in-unixlinux/.](https://www.geeksforgeeks.org/grep-command-in-unixlinux/.)
 
 __Variation 2__
 
@@ -38,7 +38,7 @@ IMG
 
 The command ```$ grep "^what" */*/*``` was used here. Similar to the last image, you can see that it finds the term "what" when its at the front of the line. It is important to note that this example proves that it is case-sensitive.
 
-I learned about this variation through this website: https://www.geeksforgeeks.org/grep-command-in-unixlinux/.
+I learned about this variation through this website: [https://www.geeksforgeeks.org/grep-command-in-unixlinux/.](https://www.geeksforgeeks.org/grep-command-in-unixlinux/.)
 
 __Variation 3__
 
@@ -56,7 +56,7 @@ IMG
 
 My intention with the command ```$ grep "50$" */*``` was to find some places that end in the number "50". In the output, it ended up finding all places that end in "50" like "250". This shows that this command ignores any spaces and just looks at the last two characters to search for matching lines.
 
-I learned about this variation through this website: https://www.geeksforgeeks.org/grep-command-in-unixlinux/.
+I learned about this variation through this website: [https://www.geeksforgeeks.org/grep-command-in-unixlinux/.](https://www.geeksforgeeks.org/grep-command-in-unixlinux/.)
 
 __Variation 4__
 
@@ -74,7 +74,7 @@ IMG
 
 The second command was ```$ grep -v "E" */*``` and was trying to find all lines where there wasn't any "E". This example shows that it is case-sensitive meaning if you want to filter multiple things, you might need to layer multiple arguements or commands together.
 
-Here is the resource I used to find this command: https://www.freecodecamp.org/news/grep-command-in-linux-usage-options-and-syntax-examples/
+Here is the resource I used to find this command: [https://www.freecodecamp.org/news/grep-command-in-linux-usage-options-and-syntax-examples/](https://www.freecodecamp.org/news/grep-command-in-linux-usage-options-and-syntax-examples/)
 
 __Conclusion__
 
