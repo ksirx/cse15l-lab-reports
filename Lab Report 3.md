@@ -42,6 +42,40 @@ I learned about this variation through this website: https://www.geeksforgeeks.o
 
 __Variation 3__
 
+The third command that I found to be interesting is the ```$ grep "term$" <filename>``` command. The ```$``` in the command means the end of the string and as expected, the use of this is to find wherever it ends with the term. Here are some examples.
+
+Example 1:
+
+IMG
+
+In the first example, ```$ grep "never$" */*/*``` was used and I was trying to find some places that end in "never". You can see that it outputs the expected lines.
+
+Example 2:
+
+IMG
+
+My intention with the command ```$ grep "50$" */*``` was to find some places that end in the number "50". In the output, it ended up finding all places that end in "50" like "250". This shows that this command ignores any spaces and just looks at the last two characters to search for matching lines.
+
+I learned about this variation through this website: https://www.geeksforgeeks.org/grep-command-in-unixlinux/.
 
 __Variation 4__
 
+The final variation that I found was ```$ grep -v "term" <filename>``` which finds and returns everything EXCLUDING the term you have specified. Here's how it works in practice.
+
+Example 1:
+
+IMG
+
+In this first image, you can see the command ```$ grep -v "a" */*``` being used. This command tries to find all lines with exclude the letter "a". In this example, you can see lots of blank lines, which shows that even if it is just a blank line, it will be included in what is returned.
+
+Example 2:
+
+IMG
+
+The second command was ```$ grep -v "E" */*``` and was trying to find all lines where there wasn't any "E". This example shows that it is case-sensitive meaning if you want to filter multiple things, you might need to layer multiple arguements or commands together.
+
+Here is the resource I used to find this command: https://www.freecodecamp.org/news/grep-command-in-linux-usage-options-and-syntax-examples/
+
+__Conclusion__
+
+These were the some of the standout command alterations that I found to be the most interesting. Still, this is only a small portion of what is available for this one command type. Doing more research on this one command opened my eye to how much more there is to learn about bash commands.
