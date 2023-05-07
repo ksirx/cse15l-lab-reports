@@ -1,128 +1,81 @@
 __Name: Xavier Navarro__
 
-__CSE 15L Lab Report 2__
+__CSE 15L Lab Report 3__
 
-During week 2 lab, I learned about servers. Here is a short demonstration of how web servers work! 
+During weeks 4 and 5, I learned about some useful commands that I can use in bash. Some of these prominent commands are ```find```, ```less```, and ```grep```. Lets dive further and explore more ways to implement the ```grep``` command!
 
-__Part 1: StringServer__
+__Variation 1__
 
-Here is some code which adds strings over and over to a server using the ```\add-message?s=<string>``` as a path at the end of a url.
-```
-import java.io.IOException;
-import java.net.URI;
+One variation is the ```$ grep -w <term> <filename>``` which finds the specified word is in the files. Here are some examples of what the use of this command returns.
 
-class Handler implements URLHandler {
-    String message = "";
-    public String handleRequest(URI url) {
-        if (url.getPath().equals("/")) {
-            return String.format("%s", message);
-        } else {
-            System.out.println("Path: " + url.getPath());
-            if (url.getPath().contains("/add")) {
-                String[] parameters = url.getQuery().split("/");
-                for (int i = 0; i < parameters.length; i++) {
-                    String[] toAdd = parameters[i].split("=");
-                    message = message + toAdd[1] + "\n";
-                }
-                return String.format("%s\n", message);
-            }
-            return "404 Not Found!";
-        }
-    }
-}
+Example 1:
 
-class StringServer {
-    public static void main(String[] args) throws IOException {
-        if(args.length == 0){
-            System.out.println("Missing port number! Try any number between 1024 to 49151");
-            return;
-        }
+![Image](2023-05-06 (1).png)
 
-        int port = Integer.parseInt(args[0]);
+In this image the command ```$ grep -w "absolutely" */*``` was used. As you can see, the result is lines from everything inside technical which also have the term "absolutly".
 
-        Server.start(port, new Handler());
-    }
-}
-```
+Example 2:
 
-This code results in something like this happening...
+![Image](2023-05-06 (2).png)
 
-![Image](2023-04-22 (4).png)
+Similar to the last example, the command ```$ grep -w "weather" */*``` was used. This command looks for all instances of the word "weather" and returns it to the terminal.
 
-As you can see, the main method in the ServerString class takes in a integer between 1024 and 49151 and forms a link to the created server. In this example, I chose 1235 which can clearly be seen through the url. This change happens when ```Server.start(port, new Handler());``` is called. 
+I learned about this variation through this website: [https://www.geeksforgeeks.org/grep-command-in-unixlinux/.](https://www.geeksforgeeks.org/grep-command-in-unixlinux/.)
 
-You'll also notice that the string added to path specified earlier was added to the server itself. This occurs in the Handler class where the handleRequest method is called. It takes the url as an argument which in this case would be ```localhost:1235/add-messages?s=Hello```. In this code, the url is first split by ```/``` to isolate the path, then split by ```=``` to isolate the wanted term. This is then added to an empty string with the addition of ```\n``` to form a new line. When the site is updated, ```Hello``` will be shown on the server.
+__Variation 2__
 
-![Image](2023-04-22 (5).png)
+The second variation that I was able to find is the ```$ grep "^term" <filename>``` which finds all files which start with the desired term. Here are two examples of this in action.
 
-Similar to the first image, the same server is being used as the number after localhost is still the same.
+Example 1:
 
-Different from the first image though, you'll see that ```localhost:1235/add-messages?s=this_works!``` is in the url instead. Also, the server still keeps the value of ```Hello```. Taking in the same arguement as before, ```this_works``` is the term that we will be adding to the server. The term ```Hello``` is still here because the empty string we appended it to from the last step still contains it. Thus, after ```Hello```, we have ```this_works!``` added to a new line right below it.
+![Image](2023-05-07.png)
 
-__Part 2: Bugs__
+Here, you can see that the command ```$ grep "^About" */*/*``` was used. In the output, you can see that it identifies every line that has "About" at the very frint of the line.
 
-The lab for week 3 was primarily focused on the utilization of JUnit and figuring out how to find bugs using it. 
-Here is an example of a buggy program that needs tweaking...
+Example 2:
 
-_Buggy Code_
-```
-// Changes the input array to be in reversed order
-  static void reverseInPlace(int[] arr) {
-    for(int i = 0; i < arr.length; i += 1) {
-      arr[i] = arr[arr.length - i - 1];
-    }
-  }
-```
-Here are some example inputs...
+![Image](2023-05-07 (1).png)
 
-_Failure-Inducing Input_
-```
-@Test 
-public void testReverseInPlace2() {
-    int[] input1 = { 1,2,3,4,5 };
-    ArrayExamples.reverseInPlace(input1);
-    assertArrayEquals(new int[]{ 5,4,3,2,1 }, input1);
-}
-```
-_Output_
-```
-arrays first differed at element [3]; expected:[2] but was:[4]
- at ArrayTests.testReverseInPlace2(ArrayTests.java:16)
-Caused by: java.lang.AssertionError: expected:[2] but was:[4]
-```
+The command ```$ grep "^what" */*/*``` was used here. Similar to the last image, you can see that it finds the term "what" when its at the front of the line. It is important to note that this example proves that it is case-sensitive.
 
-This code rightfully outputs an error. Notice how the error only occurs once we pass the halfway point of the array. The significance of this will be more clear once we see the proper fix to the code.
+I learned about this variation through this website: [https://www.geeksforgeeks.org/grep-command-in-unixlinux/.](https://www.geeksforgeeks.org/grep-command-in-unixlinux/.)
 
-_Doesn't Induce Failure (BAD)_
-```
-@Test 
-public void testReverseInPlace1() {
-    int[] input1 = { 3 };
-    ArrayExamples.reverseInPlace(input1);
-    assertArrayEquals(new int[]{ 3 }, input1);
-	}
-```
-With just an array carrying just the integer 3, running the code will pass the JUnit test. This can cause confusion on if your code works as intended. Some tests may pass but it doesen't mean that your code is bug free. This is an example of why you should use multiple tests to reduce the liklihood of missing faulty code.
+__Variation 3__
 
-_Symptom_
-Here is a screenshot of how running the code will look on VSCode.
+The third command that I found to be interesting is the ```$ grep "term$" <filename>``` command. The ```$``` in the command means the end of the string and as expected, the use of this is to find wherever it ends with the term. Here are some examples.
 
-![Image](2023-04-23.png)
+Example 1:
 
-You can see that all but one tests passed. The one test that failed was the failure-inducing input shown earlier.
+![Image](2023-05-07 (2).png)
 
-_Fixed Code_
-```
-static void reverseInPlace(int[] arr) {
-    for(int i = 0; i < arr.length / 2; i += 1) {
-      int temp = arr[i];
-      arr[i] = arr[arr.length - i - 1];
-      arr[arr.length - i -1] = temp;
-    }
-  }
-```
-One of the bugs that needed to be fixed was the code needed to run only to the middle index. If it ran all the way through, the needed change would be undone becasue once the code reached 4, it would be swapped with 2 again which impedes on the intended change. Also, there needs to be a temporary variable. This will allow us to properly change the value at ```arr[i]``` without losing the needed information needed to become equal to ```arr[arr.length - i - 1]```.
+In the first example, ```$ grep "never$" */*/*``` was used and I was trying to find some places that end in "never". You can see that it outputs the expected lines.
 
-__Part 3: What did I Learn?__
+Example 2:
 
-Over these two labs, I would say I learned the most about servers and how they work. I already had some experience with JUnit in CSE 12 so I was already a little familiar with the approach I should take while debugging the code. Learning about servers on the other hand was much more confusing, but interesting to see how code directly interacts with a website controlled by a server.
+![Image](2023-05-07 (3).png)
+
+My intention with the command ```$ grep "50$" */*``` was to find some places that end in the number "50". In the output, it ended up finding all places that end in "50" like "250". This shows that this command ignores any spaces and just looks at the last two characters to search for matching lines.
+
+I learned about this variation through this website: [https://www.geeksforgeeks.org/grep-command-in-unixlinux/.](https://www.geeksforgeeks.org/grep-command-in-unixlinux/.)
+
+__Variation 4__
+
+The final variation that I found was ```$ grep -v "term" <filename>``` which finds and returns everything EXCLUDING the term you have specified. Here's how it works in practice.
+
+Example 1:
+
+![Image](2023-05-07 (4).png)
+
+In this first image, you can see the command ```$ grep -v "a" */*``` being used. This command tries to find all lines with exclude the letter "a". In this example, you can see lots of blank lines, which shows that even if it is just a blank line, it will be included in what is returned.
+
+Example 2:
+
+![Image](2023-05-07 (5).png)
+
+The second command was ```$ grep -v "E" */*``` and was trying to find all lines where there wasn't any "E". This example shows that it is case-sensitive meaning if you want to filter multiple things, you might need to layer multiple arguements or commands together.
+
+Here is the resource I used to find this command: [https://www.freecodecamp.org/news/grep-command-in-linux-usage-options-and-syntax-examples/](https://www.freecodecamp.org/news/grep-command-in-linux-usage-options-and-syntax-examples/)
+
+__Conclusion__
+
+These were the some of the standout command alterations that I found to be the most interesting. Still, this is only a small portion of what is available for this one command type. Doing more research on this one command opened my eye to how much more there is to learn about bash commands.
