@@ -10,13 +10,13 @@ One variation is the ```$ grep -w <term> <filename>``` which finds the specified
 
 Example 1:
 
-IMG
+![Image](2023-05-06 (1).png)
 
 In this image the command ```$ grep -w "absolutely" */*``` was used. As you can see, the result is lines from everything inside technical which also have the term "absolutly".
 
 Example 2:
 
-IMG
+![Image](2023-05-06 (2).png)
 
 Similar to the last example, the command ```$ grep -w "weather" */*``` was used. This command looks for all instances of the word "weather" and returns it to the terminal.
 
@@ -28,13 +28,13 @@ The second variation that I was able to find is the ```$ grep "^term" <filename>
 
 Example 1:
 
-IMG
+![Image](2023-05-07.png)
 
 Here, you can see that the command ```$ grep "^About" */*/*``` was used. In the output, you can see that it identifies every line that has "About" at the very frint of the line.
 
 Example 2:
 
-IMG
+![Image](2023-05-07 (1).png)
 
 The command ```$ grep "^what" */*/*``` was used here. Similar to the last image, you can see that it finds the term "what" when its at the front of the line. It is important to note that this example proves that it is case-sensitive.
 
@@ -46,13 +46,13 @@ The third command that I found to be interesting is the ```$ grep "term$" <filen
 
 Example 1:
 
-IMG
+![Image](2023-05-07 (2).png)
 
 In the first example, ```$ grep "never$" */*/*``` was used and I was trying to find some places that end in "never". You can see that it outputs the expected lines.
 
 Example 2:
 
-IMG
+![Image](2023-05-07 (3).png)
 
 My intention with the command ```$ grep "50$" */*``` was to find some places that end in the number "50". In the output, it ended up finding all places that end in "50" like "250". This shows that this command ignores any spaces and just looks at the last two characters to search for matching lines.
 
@@ -64,13 +64,13 @@ The final variation that I found was ```$ grep -v "term" <filename>``` which fin
 
 Example 1:
 
-IMG
+![Image](2023-05-07 (4).png)
 
 In this first image, you can see the command ```$ grep -v "a" */*``` being used. This command tries to find all lines with exclude the letter "a". In this example, you can see lots of blank lines, which shows that even if it is just a blank line, it will be included in what is returned.
 
 Example 2:
 
-IMG
+![Image](2023-05-07 (5).png)
 
 The second command was ```$ grep -v "E" */*``` and was trying to find all lines where there wasn't any "E". This example shows that it is case-sensitive meaning if you want to filter multiple things, you might need to layer multiple arguements or commands together.
 
