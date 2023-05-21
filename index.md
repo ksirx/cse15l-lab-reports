@@ -12,8 +12,6 @@ NOTE: Make sure that you have set up generating ssh keys for both ieng6 and gith
 
 (image of forked repository)
 
-![Image](cse15l-lab-reports/images/2023-05-20 (11).png)
-
 __Step 4: Log into ieng6__
 
 First, you must log into your account using ```ssh```.
@@ -29,8 +27,6 @@ _Entire Command_
 ```$ ssh cs15lsp23cv@ieng6.ucsd.edu```
 
 (provide image showing successful log in)
-
-![Image](images/2023-05-20 (12).png)
 
 __Step 5: Cloning the Repository__
 
@@ -66,7 +62,6 @@ _Entire command_
 ```$ java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore ListExamplesTests```
 
 (image of tests failed)
-![Image](images/2023-05-06 (1).png)
 
 __Step 7: Edit code__
 
@@ -76,51 +71,49 @@ _Key Stroke_
 
 ```<v> <i> <m> <space> <L> <tab> <.> <tab> <enter> </> <i> <n> <d> <e> <x> <1> <enter> <shift-n> <e> <x> <i> <2> <Esc> <:> <w> <q> <enter>```
 
-Uses the ```vim``` command to open the file, ```tab``` to fill in wanted file, ```/``` to search, <shift-n> to find last instance of term, ```e``` to go to end of word, ```x``` to remove number at end, ```i``` to enter insert mode, ```Esc``` to exit insert mode, and ```:wq``` to save and quit.
+Uses the ```vim``` command to open the file, ```tab``` to fill in wanted file, ```/``` to search, ```<shift-n>``` to find last instance of term, ```e``` to go to end of word, ```x``` to remove number at end, ```i``` to enter insert mode, ```Esc``` to exit insert mode, and ```:wq``` to save and quit.
 
 _Entire Command_
-  
+
 ```vim ListExamples.java```
   
 (image of file opened inside vim)
-  ![Image](images/2023-05-20 (6).png)
+![Image](2023-05-20 (6).png)
   
 __Step 8: Run tests again__
   
-  We need to run the tests again to see if the change we made will make the test pass this time around.
+We need to run the tests again to see if the change we made will make the test pass this time around.
   
-  _Key Stroke_
+_Key Stroke_
   
-  ```<ctrl-c> <ctrl-v> <enter> <ctrl-c> <ctrl-v> <space> <L> <tab> <T> <tab> <enter>```
+```<ctrl-c> <ctrl-v> <enter> <ctrl-c> <ctrl-v> <space> <L> <tab> <T> <tab> <enter>```
   
-  Run the same tests as step 6.
+Run the same tests as step 6.
   
-  _Entire Command_
+_Entire Command_
   
-  ```$ javac -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar *.java```
+```$ javac -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar *.java```
 
 ```$ java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore ListExamplesTests```
   
-  (insert image of test passing)
-  ![Image](images/2023-05-06 (1).png)
+(insert image of test passing)
   
-  __Step 9: Commit and push to github account__
+__Step 9: Commit and push to github account__
   
-  We now need to run some commands in order to save the changes that we have made to our github account.
+We now need to run some commands in order to save the changes that we have made to our github account.
+
+_Key Stroke_
   
-  _Key Stroke_
-  
- ```<g> <i> <t> <space> <a> <d> <tab> <L> <tab> <.> <j> <tab> <enter> <g> <i> <t> <space> <c> <o> <m> <tab> <-> <m> <"> <n> <e> <w> <"> <enter> <g> <i> <t> <space> <p> <u> <s> <tab> <enter> ``` 
+```<g> <i> <t> <space> <a> <d> <tab> <L> <tab> <.> <j> <tab> <enter> <g> <i> <t> <space> <c> <o> <m> <tab> <-> <m> <"> <n> <e> <w> <"> <enter> <g> <i> <t> <space> <p> <u> <s> <tab> <enter> ``` 
   
 Using a combination of 3 commands. ```git add``` indicates which files have been changed.```git commit``` creates a snapshot of all the changes within the repository. ```git push``` pushes the changes to github.
 
-  _Entire Command_
+_Entire Command_
   
-  ```$ git add ListExamples.java```
+```$ git add ListExamples.java```
   
-  ```$ git commit -m "new"```
+```$ git commit -m "new"```
   
-  ```$ git push```
+```$ git push```
   
 (insert image of three commands)
-  ![Image](images/2023-05-06 (1).png)
