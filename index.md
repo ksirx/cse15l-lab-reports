@@ -12,7 +12,7 @@ NOTE: Make sure that you have set up generating ssh keys for both ieng6 and gith
 
 (image of forked repository)
 
-![Image](images/2023-05-20 (11).png)
+![Image](2023-05-20 (11).png)
 
 __Step 4: Log into ieng6__
 
@@ -30,7 +30,7 @@ _Entire Command_
 
 (provide image showing successful log in)
 
-![Image](images/2023-05-20 (12).png)
+![Image](2023-05-20 (12).png)
 
 __Step 5: Cloning the Repository__
 
@@ -48,7 +48,7 @@ _Entire command_
 
 (image of 'cloning lab7')
 
-![Image](images/2023-05-20 (13).png)
+![Image](2023-05-20 (13).png)
 
 __Step 6: Run initial tests__
 
@@ -68,6 +68,8 @@ _Entire command_
 
 (image of tests failed)
 
+![Image](2023-05-20 (14).png)
+
 __Step 7: Edit code__
 
 We need to access the code in ```ListExamples.java``` using vim and replace ```index1``` with ```index2``` in the final loop of merge.
@@ -83,7 +85,8 @@ _Entire Command_
 ```vim ListExamples.java```
   
 (image of file opened inside vim)
-![Image](images/2023-05-20 (6).png)
+
+![Image](2023-05-20 (6).png)
   
 __Step 8: Run tests again__
   
@@ -102,6 +105,8 @@ _Entire Command_
 ```$ java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore ListExamplesTests```
   
 (insert image of test passing)
+
+![Image](2023-05-20 (15).png)
   
 __Step 9: Commit and push to github account__
   
@@ -122,3 +127,5 @@ _Entire Command_
 ```$ git push```
   
 (insert image of three commands)
+
+![Image](2023-05-20 (16).png)
