@@ -48,15 +48,15 @@ We want to run the JUnit tests which will test the java files to see if the pass
 
 _Key Stroke_
 
-```<c> <d> < > <l> <tab> <enter> <ctrl-c> <ctrl-v> <enter> <ctrl-c> <ctrl-v> < > <L> <tab> <T> <tab> <.> <j> <tab> <enter>```
+```<c> <d> < > <l> <tab> <enter> <ctrl-c> <ctrl-v> <enter> <ctrl-c> <ctrl-v> < > <L> <tab> <T> <tab> <tab> <enter>```
 
-Goes into the ```lab7``` directory, copy and paste the javac command from the lab 7 write up, then copy and paste java command from lab 7 write up and add ```ListExamplesTests.java``` to the end run.
+Goes into the ```lab7``` directory, copy and paste the javac command from the lab 7 write up, then copy and paste java command from lab 7 write up and add ```ListExamplesTests``` to the end run.
 
 _Entire command_
 
 ```$ javac -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar *.java```
 
-```$ java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore ListExamplesTests.java```
+```$ java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore ListExamplesTests```
 
 (image of tests failed)
 
@@ -70,3 +70,32 @@ _Key Stroke_
 
 Uses the ```vim``` command to open the file, ```tab``` to fill in wanted file, ```/``` to search, <shift-n> to find last instance of term, ```e``` to go to end of word, ```x``` to remove number at end, ```i``` to enter insert mode, ```Esc``` to exit insert mode, and ```:wq``` to save and quit.
 
+_Entire command_
+  
+```vim ListExamples.java```
+  
+(image of file opened inside vim)
+  
+__Step 8: Run tests again__
+  
+  We need to run the tests again to see if the change we made will make the test pass this time around.
+  
+  _Key Stroke_
+  
+  ```<ctrl-c> <ctrl-v> <enter> <ctrl-c> <ctrl-v> < > <L> <tab> <T> <tab> <enter>```
+  
+  Run the same tests as step 6.
+  
+  _Entire Command_
+  
+  ```$ javac -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar *.java```
+
+```$ java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore ListExamplesTests```
+  
+  (insert image of test passing)
+  
+  __Step 9: Commit and push to github account__
+  
+  
+  
+  
