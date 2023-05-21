@@ -8,9 +8,11 @@ __Steps 1 - 3: Setup__
 
 Before starting, make sure that are using a new fork of the ```lab7``` repository. If you already have a fork, delete and re-fork the repository. Now, we are ready to walk through all the steps of the times section!
 
-NOTE: Make sure that you have set up generating ssh keys for both ieng6 and github! This will mkae your life easier and is required to push any changes made to github.
+NOTE: Make sure that you have set up generating ssh keys for both ieng6 and github! This will make your life easier and is required to push any changes made to github.
 
 (image of forked repository)
+
+![Image](2023-05-20 (11).png)
 
 __Step 4: Log into ieng6__
 
@@ -26,7 +28,9 @@ _Entire Command_
 
 ```$ ssh cs15lsp23cv@ieng6.ucsd.edu```
 
-(provide image showing successful log in)
+(image showing successful log in)
+
+![Image](2023-05-20 (12).png)
 
 __Step 5: Cloning the Repository__
 
@@ -43,6 +47,8 @@ _Entire command_
 ```$ git clone git@github.com:ksirx/lab7.git```
 
 (image of 'cloning lab7')
+
+![Image](2023-05-20 (13).png)
 
 __Step 6: Run initial tests__
 
@@ -62,6 +68,8 @@ _Entire command_
 
 (image of tests failed)
 
+![Image](2023-05-20 (14).png)
+
 __Step 7: Edit code__
 
 We need to access the code in ```ListExamples.java``` using vim and replace ```index1``` with ```index2``` in the final loop of merge.
@@ -70,48 +78,58 @@ _Key Stroke_
 
 ```<v> <i> <m> <space> <L> <tab> <.> <tab> <enter> </> <i> <n> <d> <e> <x> <1> <enter> <shift-n> <e> <x> <i> <2> <Esc> <:> <w> <q> <enter>```
 
-Uses the ```vim``` command to open the file, ```tab``` to fill in wanted file, ```/``` to search, <shift-n> to find last instance of term, ```e``` to go to end of word, ```x``` to remove number at end, ```i``` to enter insert mode, ```Esc``` to exit insert mode, and ```:wq``` to save and quit.
+Uses the ```vim``` command to open the file, ```tab``` to fill in wanted file, ```/``` to search, ```<shift-n>``` to find last instance of term, ```e``` to go to end of word, ```x``` to remove number at end, ```i``` to enter insert mode, ```Esc``` to exit insert mode, and ```:wq``` to save and quit.
 
-_Entire command_
-  
+_Entire Command_
+
 ```vim ListExamples.java```
   
 (image of file opened inside vim)
+
+![Image](2023-05-20 (6).png)
   
 __Step 8: Run tests again__
   
-  We need to run the tests again to see if the change we made will make the test pass this time around.
+We need to run the tests again to see if the change we made will make the test pass this time around.
   
-  _Key Stroke_
+_Key Stroke_
   
-  ```<ctrl-c> <ctrl-v> <enter> <ctrl-c> <ctrl-v> <space> <L> <tab> <T> <tab> <enter>```
+```<ctrl-c> <ctrl-v> <enter> <ctrl-c> <ctrl-v> <space> <L> <tab> <T> <tab> <enter>```
   
-  Run the same tests as step 6.
+Run the same tests as step 6.
   
-  _Entire Command_
+_Entire Command_
   
-  ```$ javac -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar *.java```
+```$ javac -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar *.java```
 
 ```$ java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore ListExamplesTests```
   
-  (insert image of test passing)
+(image of test passing)
+
+![Image](2023-05-20 (15).png)
   
-  __Step 9: Commit and push to github account__
+__Step 9: Commit and push to github account__
   
-  We now need to run some commands in order to save the changes that we have made to our github account.
+We now need to run some commands in order to save the changes that we have made to our github account.
+
+_Key Stroke_
   
-  _Key Stroke_
-  
- ```<g> <i> <t> <space> <a> <d> <tab> <L> <tab> <.> <j> <tab> <enter> <g> <i> <t> <space> <c> <o> <m> <tab> <-> <m> <"> <n> <e> <w> <"> <enter> <g> <i> <t> <space> <p> <u> <s> <tab> <enter> ``` 
+```<g> <i> <t> <space> <a> <d> <tab> <L> <tab> <.> <j> <tab> <enter> <g> <i> <t> <space> <c> <o> <m> <tab> <-> <m> <"> <n> <e> <w> <"> <enter> <g> <i> <t> <space> <p> <u> <s> <tab> <enter> ``` 
   
 Using a combination of 3 commands. ```git add``` indicates which files have been changed.```git commit``` creates a snapshot of all the changes within the repository. ```git push``` pushes the changes to github.
 
-  _Entire Command_
+_Entire Command_
   
-  ```$ git add ListExamples.java```
+```$ git add ListExamples.java```
   
-  ```$ git commit -m "new"```
+```$ git commit -m "new"```
   
-  ```$ git push```
+```$ git push```
   
-(insert image of three commands)
+(image of three commands)
+
+![Image](2023-05-20 (16).png)
+
+__Conclusion__
+
+Everything now works as intended!
