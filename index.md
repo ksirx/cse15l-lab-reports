@@ -46,7 +46,7 @@ _Entire command_
 ```$ git clone git@github.com:ksirx/lab7.git```
 
 (image of 'cloning lab7')
-![Image](2023-05-06 (1).png)
+![Image](2023-05-20 (13).png)
 
 __Step 6: Run initial tests__
 
@@ -82,7 +82,7 @@ _Entire Command_
 ```vim ListExamples.java```
   
 (image of file opened inside vim)
-  ![Image](2023-05-06 (1).png)
+  ![Image](2023-05-20 (6).png)
   
 __Step 8: Run tests again__
   
