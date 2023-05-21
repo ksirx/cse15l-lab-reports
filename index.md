@@ -28,7 +28,7 @@ _Entire Command_
 
 ```$ ssh cs15lsp23cv@ieng6.ucsd.edu```
   
-(image showing successful log in)
+(shows successful log in)
 
 ![Image](2023-05-20 (12).png)
 
