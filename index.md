@@ -12,7 +12,7 @@ NOTE: Make sure that you have set up generating ssh keys for both ieng6 and gith
 
 (image of forked repository)
 
-![Image](2023-05-20 (11).png)
+![Image](cse15l-lab-reports/img/2023-05-20 (11).png)
 
 __Step 4: Log into ieng6__
 
