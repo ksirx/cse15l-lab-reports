@@ -18,7 +18,7 @@ First, you must log into your account using ```ssh```.
 
 _Key Stroke_
 
-```<s> <s> <h> < > <ctrl-c> <ctrl-v> <enter> <ctrl-c> <ctrl-v> <enter>``` 
+```<s> <s> <h> <space> <ctrl-c> <ctrl-v> <enter> <ctrl-c> <ctrl-v> <enter>``` 
 
 Starts the ```ssh``` command to log in, copy and paste both the ieng6 account, and password.
 
@@ -34,7 +34,7 @@ In order to clone the repository, we need to use the ```git clone``` command and
 
 _Key Stroke_
 
-```<g> <i> <t> < > <c> <l> <o> <n> <e> < > <ctrl-c> <ctrl-v> <enter>```
+```<g> <i> <t> <space> <c> <l> <o> <n> <e> <space> <ctrl-c> <ctrl-v> <enter>```
 
 Acesses the empty git clone ```git clone```, then copy and paste path the forked repository with ssh```git@github.com:ksirx/lab7.git```.
 
@@ -50,7 +50,7 @@ We want to run the JUnit tests which will test the java files to see if the pass
 
 _Key Stroke_
 
-```<c> <d> < > <l> <tab> <enter> <ctrl-c> <ctrl-v> <enter> <ctrl-c> <ctrl-v> < > <L> <tab> <T> <tab> <tab> <enter>```
+```<c> <d> <space> <l> <tab> <enter> <ctrl-c> <ctrl-v> <enter> <ctrl-c> <ctrl-v> <space> <L> <tab> <T> <tab> <tab> <enter>```
 
 Goes into the ```lab7``` directory, copy and paste the javac command from the lab 7 write up, then copy and paste java command from lab 7 write up and add ```ListExamplesTests``` to the end run.
 
@@ -68,7 +68,7 @@ We need to access the code in ```ListExamples.java``` using vim and replace ```i
 
 _Key Stroke_
 
-```<v> <i> <m> < > <L> <tab> <.> <tab> <enter> </> <i> <n> <d> <e> <x> <1> <enter> <shift-n> <e> <x> <i> <2> <Esc> <:> <w> <q> <enter>```
+```<v> <i> <m> <space> <L> <tab> <.> <tab> <enter> </> <i> <n> <d> <e> <x> <1> <enter> <shift-n> <e> <x> <i> <2> <Esc> <:> <w> <q> <enter>```
 
 Uses the ```vim``` command to open the file, ```tab``` to fill in wanted file, ```/``` to search, <shift-n> to find last instance of term, ```e``` to go to end of word, ```x``` to remove number at end, ```i``` to enter insert mode, ```Esc``` to exit insert mode, and ```:wq``` to save and quit.
 
@@ -84,7 +84,7 @@ __Step 8: Run tests again__
   
   _Key Stroke_
   
-  ```<ctrl-c> <ctrl-v> <enter> <ctrl-c> <ctrl-v> < > <L> <tab> <T> <tab> <enter>```
+  ```<ctrl-c> <ctrl-v> <enter> <ctrl-c> <ctrl-v> <space> <L> <tab> <T> <tab> <enter>```
   
   Run the same tests as step 6.
   
@@ -102,9 +102,9 @@ __Step 8: Run tests again__
   
   _Key Stroke_
   
- ```<g> <i> <t> < > <a> <d> <tab> <ctrl-c> <ctrl-v> <enter> <g> <i> <t> < > <c> <o> <m> <tab> <-> <m> <"> <n> <e> <w> <"> <enter> <g> <i> <t> < > <p> <u> <s> <tab> <enter> ``` 
+ ```<g> <i> <t> <space> <a> <d> <tab> <L> <tab> <.> <j> <tab> <enter> <g> <i> <t> <space> <c> <o> <m> <tab> <-> <m> <"> <n> <e> <w> <"> <enter> <g> <i> <t> <space> <p> <u> <s> <tab> <enter> ``` 
   
-Using a combination of 3 commands. ```git add``` indicates which files have been changed. ```git commit```   creates a snapshot of all the changes within the repository. ```git push``` pushes the changes to github.
+Using a combination of 3 commands. ```git add``` indicates which files have been changed.```git commit``` creates a snapshot of all the changes within the repository. ```git push``` pushes the changes to github.
 
   _Entire Command_
   
