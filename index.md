@@ -11,6 +11,7 @@ Before starting, make sure that are using a new fork of the ```lab7``` repositor
 NOTE: Make sure that you have set up generating ssh keys for both ieng6 and github! This will mkae your life easier and is required to push any changes made to github.
 
 (image of forked repository)
+![Image](2023-05-06 (1).png)
 
 __Step 4: Log into ieng6__
 
@@ -27,6 +28,7 @@ _Entire Command_
 ```$ ssh cs15lsp23cv@ieng6.ucsd.edu```
 
 (provide image showing successful log in)
+![Image](2023-05-06 (1).png)
 
 __Step 5: Cloning the Repository__
 
@@ -43,6 +45,7 @@ _Entire command_
 ```$ git clone git@github.com:ksirx/lab7.git```
 
 (image of 'cloning lab7')
+![Image](2023-05-06 (1).png)
 
 __Step 6: Run initial tests__
 
@@ -61,6 +64,7 @@ _Entire command_
 ```$ java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore ListExamplesTests```
 
 (image of tests failed)
+![Image](2023-05-06 (1).png)
 
 __Step 7: Edit code__
 
@@ -72,11 +76,12 @@ _Key Stroke_
 
 Uses the ```vim``` command to open the file, ```tab``` to fill in wanted file, ```/``` to search, <shift-n> to find last instance of term, ```e``` to go to end of word, ```x``` to remove number at end, ```i``` to enter insert mode, ```Esc``` to exit insert mode, and ```:wq``` to save and quit.
 
-_Entire command_
+_Entire Command_
   
 ```vim ListExamples.java```
   
 (image of file opened inside vim)
+  ![Image](2023-05-06 (1).png)
   
 __Step 8: Run tests again__
   
@@ -95,6 +100,7 @@ __Step 8: Run tests again__
 ```$ java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore ListExamplesTests```
   
   (insert image of test passing)
+  ![Image](2023-05-06 (1).png)
   
   __Step 9: Commit and push to github account__
   
@@ -115,3 +121,4 @@ Using a combination of 3 commands. ```git add``` indicates which files have been
   ```$ git push```
   
 (insert image of three commands)
+  ![Image](2023-05-06 (1).png)
