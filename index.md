@@ -1,81 +1,117 @@
 __Name: Xavier Navarro__
 
-__CSE 15L Lab Report 3__
+__CSE 15L Lab Report 4__
 
-During weeks 4 and 5, I learned about some useful commands that I can use in bash. Some of these prominent commands are ```find```, ```less```, and ```grep```. Lets dive further and explore more ways to implement the ```grep``` command!
+In this lab report, I will be going over the key strokes needed to complete steps 4 through 9 on the timed section.
 
-__Variation 1__
+__Steps 1 - 3: Setup__
 
-One variation is the ```$ grep -w <term> <filename>``` which finds the specified word is in the files. Here are some examples of what the use of this command returns.
+Before starting, make sure that are using a new fork of the ```lab7``` repository. If you already have a fork, delete and re-fork the repository. Now, we are ready to walk through all the steps of the times section!
 
-Example 1:
+NOTE: Make sure that you have set up generating ssh keys for both ieng6 and github! This will mkae your life easier and is required to push any changes made to github.
 
-![Image](2023-05-06 (1).png)
+(image of forked repository)
 
-In this image the command ```$ grep -w "absolutely" */*``` was used. As you can see, the result is lines from everything inside technical which also have the term "absolutly".
+__Step 4: Log into ieng6__
 
-Example 2:
+First, you must log into your account using ```ssh```.
 
-![Image](2023-05-06 (2).png)
+_Key Stroke_
 
-Similar to the last example, the command ```$ grep -w "weather" */*``` was used. This command looks for all instances of the word "weather" and returns it to the terminal.
+```<s> <s> <h> <space> <ctrl-c> <ctrl-v> <enter> <ctrl-c> <ctrl-v> <enter>``` 
 
-I learned about this variation through this website: [https://www.geeksforgeeks.org/grep-command-in-unixlinux/.](https://www.geeksforgeeks.org/grep-command-in-unixlinux/.)
+Starts the ```ssh``` command to log in, copy and paste both the ieng6 account, and password.
 
-__Variation 2__
+_Entire Command_
 
-The second variation that I was able to find is the ```$ grep "^term" <filename>``` which finds all files which start with the desired term. Here are two examples of this in action.
+```$ ssh cs15lsp23cv@ieng6.ucsd.edu```
 
-Example 1:
+(provide image showing successful log in)
 
-![Image](2023-05-07.png)
+__Step 5: Cloning the Repository__
 
-Here, you can see that the command ```$ grep "^About" */*/*``` was used. In the output, you can see that it identifies every line that has "About" at the very frint of the line.
+In order to clone the repository, we need to use the ```git clone``` command and get access to the forked repository. This will clone the directory which you can now access through bash.
 
-Example 2:
+_Key Stroke_
 
-![Image](2023-05-07 (1).png)
+```<g> <i> <t> <space> <c> <l> <o> <n> <e> <space> <ctrl-c> <ctrl-v> <enter>```
 
-The command ```$ grep "^what" */*/*``` was used here. Similar to the last image, you can see that it finds the term "what" when its at the front of the line. It is important to note that this example proves that it is case-sensitive.
+Acesses the empty git clone ```git clone```, then copy and paste path the forked repository with ssh```git@github.com:ksirx/lab7.git```.
 
-I learned about this variation through this website: [https://www.geeksforgeeks.org/grep-command-in-unixlinux/.](https://www.geeksforgeeks.org/grep-command-in-unixlinux/.)
+_Entire command_
 
-__Variation 3__
+```$ git clone git@github.com:ksirx/lab7.git```
 
-The third command that I found to be interesting is the ```$ grep "term$" <filename>``` command. The ```$``` in the command means the end of the string and as expected, the use of this is to find wherever it ends with the term. Here are some examples.
+(image of 'cloning lab7')
 
-Example 1:
+__Step 6: Run initial tests__
 
-![Image](2023-05-07 (2).png)
+We want to run the JUnit tests which will test the java files to see if the pass on the initial try.
 
-In the first example, ```$ grep "never$" */*/*``` was used and I was trying to find some places that end in "never". You can see that it outputs the expected lines.
+_Key Stroke_
 
-Example 2:
+```<c> <d> <space> <l> <tab> <enter> <ctrl-c> <ctrl-v> <enter> <ctrl-c> <ctrl-v> <space> <L> <tab> <T> <tab> <tab> <enter>```
 
-![Image](2023-05-07 (3).png)
+Goes into the ```lab7``` directory, copy and paste the javac command from the lab 7 write up, then copy and paste java command from lab 7 write up and add ```ListExamplesTests``` to the end run.
 
-My intention with the command ```$ grep "50$" */*``` was to find some places that end in the number "50". In the output, it ended up finding all places that end in "50" like "250". This shows that this command ignores any spaces and just looks at the last two characters to search for matching lines.
+_Entire command_
 
-I learned about this variation through this website: [https://www.geeksforgeeks.org/grep-command-in-unixlinux/.](https://www.geeksforgeeks.org/grep-command-in-unixlinux/.)
+```$ javac -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar *.java```
 
-__Variation 4__
+```$ java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore ListExamplesTests```
 
-The final variation that I found was ```$ grep -v "term" <filename>``` which finds and returns everything EXCLUDING the term you have specified. Here's how it works in practice.
+(image of tests failed)
 
-Example 1:
+__Step 7: Edit code__
 
-![Image](2023-05-07 (4).png)
+We need to access the code in ```ListExamples.java``` using vim and replace ```index1``` with ```index2``` in the final loop of merge.
 
-In this first image, you can see the command ```$ grep -v "a" */*``` being used. This command tries to find all lines with exclude the letter "a". In this example, you can see lots of blank lines, which shows that even if it is just a blank line, it will be included in what is returned.
+_Key Stroke_
 
-Example 2:
+```<v> <i> <m> <space> <L> <tab> <.> <tab> <enter> </> <i> <n> <d> <e> <x> <1> <enter> <shift-n> <e> <x> <i> <2> <Esc> <:> <w> <q> <enter>```
 
-![Image](2023-05-07 (5).png)
+Uses the ```vim``` command to open the file, ```tab``` to fill in wanted file, ```/``` to search, <shift-n> to find last instance of term, ```e``` to go to end of word, ```x``` to remove number at end, ```i``` to enter insert mode, ```Esc``` to exit insert mode, and ```:wq``` to save and quit.
 
-The second command was ```$ grep -v "E" */*``` and was trying to find all lines where there wasn't any "E". This example shows that it is case-sensitive meaning if you want to filter multiple things, you might need to layer multiple arguements or commands together.
+_Entire command_
+  
+```vim ListExamples.java```
+  
+(image of file opened inside vim)
+  
+__Step 8: Run tests again__
+  
+  We need to run the tests again to see if the change we made will make the test pass this time around.
+  
+  _Key Stroke_
+  
+  ```<ctrl-c> <ctrl-v> <enter> <ctrl-c> <ctrl-v> <space> <L> <tab> <T> <tab> <enter>```
+  
+  Run the same tests as step 6.
+  
+  _Entire Command_
+  
+  ```$ javac -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar *.java```
 
-Here is the resource I used to find this command: [https://www.freecodecamp.org/news/grep-command-in-linux-usage-options-and-syntax-examples/](https://www.freecodecamp.org/news/grep-command-in-linux-usage-options-and-syntax-examples/)
+```$ java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore ListExamplesTests```
+  
+  (insert image of test passing)
+  
+  __Step 9: Commit and push to github account__
+  
+  We now need to run some commands in order to save the changes that we have made to our github account.
+  
+  _Key Stroke_
+  
+ ```<g> <i> <t> <space> <a> <d> <tab> <L> <tab> <.> <j> <tab> <enter> <g> <i> <t> <space> <c> <o> <m> <tab> <-> <m> <"> <n> <e> <w> <"> <enter> <g> <i> <t> <space> <p> <u> <s> <tab> <enter> ``` 
+  
+Using a combination of 3 commands. ```git add``` indicates which files have been changed.```git commit``` creates a snapshot of all the changes within the repository. ```git push``` pushes the changes to github.
 
-__Conclusion__
-
-These were the some of the standout command alterations that I found to be the most interesting. Still, this is only a small portion of what is available for this one command type. Doing more research on this one command opened my eye to how much more there is to learn about bash commands.
+  _Entire Command_
+  
+  ```$ git add ListExamples.java```
+  
+  ```$ git commit -m "new"```
+  
+  ```$ git push```
+  
+(insert image of three commands)
