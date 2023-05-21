@@ -8,7 +8,7 @@ __Steps 1 - 3: Setup__
 
 Before starting, make sure that are using a new fork of the ```lab7``` repository. If you already have a fork, delete and re-fork the repository. Now, we are ready to walk through all the steps of the times section!
 
-NOTE: Make sure that you have set up generating ssh keys for both ieng6 and github! This will mkae your life easier and is required to push any changes made to github.
+NOTE: Make sure that you have set up generating ssh keys for both ieng6 and github! This will make your life easier and is required to push any changes made to github.
 
 (image of forked repository)
 
@@ -28,7 +28,7 @@ _Entire Command_
 
 ```$ ssh cs15lsp23cv@ieng6.ucsd.edu```
 
-(provide image showing successful log in)
+(image showing successful log in)
 
 ![Image](2023-05-20 (12).png)
 
@@ -104,7 +104,7 @@ _Entire Command_
 
 ```$ java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore ListExamplesTests```
   
-(insert image of test passing)
+(image of test passing)
 
 ![Image](2023-05-20 (15).png)
   
@@ -126,6 +126,10 @@ _Entire Command_
   
 ```$ git push```
   
-(insert image of three commands)
+(image of three commands)
 
 ![Image](2023-05-20 (16).png)
+
+__Conclusion__
+
+Everything now works as intended!
