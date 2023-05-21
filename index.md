@@ -12,7 +12,7 @@ NOTE: Make sure that you have set up generating ssh keys for both ieng6 and gith
 
 (image of forked repository)
 
-![Image](2023-05-20 (11).png)
+![Image](images/2023-05-20 (11).png)
 
 __Step 4: Log into ieng6__
 
@@ -30,7 +30,7 @@ _Entire Command_
 
 (provide image showing successful log in)
 
-![Image](2023-05-20 (12).png)
+![Image](images/2023-05-20 (12).png)
 
 __Step 5: Cloning the Repository__
 
@@ -83,7 +83,7 @@ _Entire Command_
 ```vim ListExamples.java```
   
 (image of file opened inside vim)
-![Image](2023-05-20 (6).png)
+![Image](images/2023-05-20 (6).png)
   
 __Step 8: Run tests again__
   
