@@ -27,7 +27,7 @@ Starts the ```ssh``` command to log in, copy and paste both the ieng6 account, a
 _Entire Command_
 
 ```$ ssh cs15lsp23cv@ieng6.ucsd.edu```
-
+  
 (image showing successful log in)
 
 ![Image](2023-05-20 (12).png)
