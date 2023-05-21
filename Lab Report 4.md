@@ -8,6 +8,8 @@ __Steps 1 - 3: Setup__
 
 Before starting, make sure that are using a new fork of the ```lab7``` repository. If you already have a fork, delete and re-fork the repository. Now, we are ready to walk through all the steps of the times section!
 
+NOTE: Make sure that you have set up generating ssh keys for both ieng6 and github! This will mkae your life easier and is required to push any changes made to github.
+
 (image of forked repository)
 
 __Step 4: Log into ieng6__
@@ -34,11 +36,11 @@ _Key Stroke_
 
 ```<g> <i> <t> < > <c> <l> <o> <n> <e> < > <ctrl-c> <ctrl-v> <enter>```
 
-Acesses the empty git clone ```git clone```, then copy and paste path the forked repository ```https://github.com/ksirx/lab7.git```.
+Acesses the empty git clone ```git clone```, then copy and paste path the forked repository with ssh```git@github.com:ksirx/lab7.git```.
 
 _Entire command_
 
-```$ git clone https://github.com/ksirx/lab7.git```
+```$ git clone git@github.com:ksirx/lab7.git```
 
 (image of 'cloning lab7')
 
@@ -96,6 +98,20 @@ __Step 8: Run tests again__
   
   __Step 9: Commit and push to github account__
   
+  We now need to run some commands in order to save the changes that we have made to our github account.
   
+  _Key Stroke_
   
+ ```<g> <i> <t> < > <a> <d> <tab> <ctrl-c> <ctrl-v> <enter> <g> <i> <t> < > <c> <o> <m> <tab> <-> <m> <"> <n> <e> <w> <"> <enter> <g> <i> <t> < > <p> <u> <s> <tab> <enter> ``` 
   
+Using a combination of 3 commands. ```git add``` indicates which files have been changed. ```git commit```   creates a snapshot of all the changes within the repository. ```git push``` pushes the changes to github.
+
+  _Entire Command_
+  
+  ```$ git add ListExamples.java```
+  
+  ```$ git commit -m "new"```
+  
+  ```$ git push```
+  
+(insert image of three commands)
