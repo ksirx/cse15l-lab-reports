@@ -12,7 +12,7 @@ NOTE: Make sure that you have set up generating ssh keys for both ieng6 and gith
 
 (image of forked repository)
 
-![Image](images/2023-05-20 (11).png)
+![Image](2023-05-20 (11).png)
 
 __Step 4: Log into ieng6__
 
@@ -29,6 +29,7 @@ _Entire Command_
 ```$ ssh cs15lsp23cv@ieng6.ucsd.edu```
 
 (provide image showing successful log in)
+
 ![Image](2023-05-20 (12).png)
 
 __Step 5: Cloning the Repository__
