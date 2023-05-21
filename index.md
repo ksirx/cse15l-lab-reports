@@ -12,6 +12,8 @@ NOTE: Make sure that you have set up generating ssh keys for both ieng6 and gith
 
 (image of forked repository)
 
+![Image](2023-05-20 (11).png)
+
 __Step 4: Log into ieng6__
 
 First, you must log into your account using ```ssh```.
@@ -28,6 +30,8 @@ _Entire Command_
 
 (provide image showing successful log in)
 
+![Image](2023-05-20 (12).png)
+
 __Step 5: Cloning the Repository__
 
 In order to clone the repository, we need to use the ```git clone``` command and get access to the forked repository. This will clone the directory which you can now access through bash.
@@ -43,6 +47,7 @@ _Entire command_
 ```$ git clone git@github.com:ksirx/lab7.git```
 
 (image of 'cloning lab7')
+
 ![Image](images/2023-05-20 (13).png)
 
 __Step 6: Run initial tests__
