@@ -19,6 +19,7 @@ __Detail the symptom you're seeing. Be specific; include both what you're seeing
 Here is the output of the code when I run it:
 
 ```
+
 [cs15lsp23cv@ieng6−202]:lab7:515 bash test.sh 
 
 JUnit version 4.13.2 .E.E Time: 0.017 There were 2 failures:
@@ -37,6 +38,7 @@ __Detail the failure-inducing input and context. That might mean any or all of t
 Here is the code that was being run with the $ bash test.sh command that I used for the test.
 
 ```
+
 public class ListExamplesTests {
         @Test(timeout = 500)
         public void testMerge1() {
@@ -56,6 +58,7 @@ public class ListExamplesTests {
 As you can see "a" is the expected value for both, but we are instead getting "x" for the first one, and "c" for the second one. Here's the code being run for the merge method
 
 ```
+
 static List<String> merge(List<String> list1, List<String> list2) {
     List<String> result = new ArrayList<>();
     int index1 = 0, index2 = 0;
@@ -115,6 +118,7 @@ The error the student spotted did have something to do with how the arrays were 
 To summarize the changes that needed to be made to the merge method in order for the tests to work, the code had to go from this initially
 
 ```
+
 static List<String> merge(List<String> list1, List<String> list2) {
     List<String> result = new ArrayList<>();
     int index1 = 0, index2 = 0;
@@ -148,6 +152,7 @@ $ bash test.sh
 Both tests fail which shows that there is an issue that needs to be fixed. After the necessary changes are made to fix the code, it now looks like this...
 
 ```
+
 static List<String> merge(List<String> list1, List<String> list2) {
     List<String> result = new ArrayList<>();
     int index1 = 0, index2 = 0;
