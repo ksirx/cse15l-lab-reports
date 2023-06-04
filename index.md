@@ -51,7 +51,9 @@ Here is the code that was being run with the $ bash test.sh command that I used 
 
 }```
 
+
 As you can see "a" is the expected value for both, but we are instead getting "x" for the first one, and "c" for the second one. Here's the code being run for the merge method
+
 
 ```static List<String> merge(List<String> list1, List<String> list2) {
     List<String> result = new ArrayList<>();
