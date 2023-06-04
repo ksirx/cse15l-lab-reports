@@ -18,7 +18,8 @@ __Detail the symptom you're seeing. Be specific; include both what you're seeing
 
 Here is the output of the code when I run it:
 
-```[cs15lsp23cv@ieng6−202]:lab7:515 bash test.sh 
+```
+[cs15lsp23cv@ieng6−202]:lab7:515 bash test.sh 
 
 JUnit version 4.13.2 .E.E Time: 0.017 There were 2 failures:
 
@@ -35,7 +36,8 @@ __Detail the failure-inducing input and context. That might mean any or all of t
 
 Here is the code that was being run with the $ bash test.sh command that I used for the test.
 
-```public class ListExamplesTests {
+```
+public class ListExamplesTests {
         @Test(timeout = 500)
         public void testMerge1() {
                 List<String> l1 = new ArrayList<String>(Arrays.asList("x", "y"));
@@ -53,7 +55,8 @@ Here is the code that was being run with the $ bash test.sh command that I used 
 
 As you can see "a" is the expected value for both, but we are instead getting "x" for the first one, and "c" for the second one. Here's the code being run for the merge method
 
-```static List<String> merge(List<String> list1, List<String> list2) {
+```
+static List<String> merge(List<String> list1, List<String> list2) {
     List<String> result = new ArrayList<>();
     int index1 = 0, index2 = 0;
     while(index1 < list1.size() && index2 < list2.size()) {
@@ -98,7 +101,8 @@ As you can see from your output, there must be an issue with how the two arrays 
 After looking at the code, the student spots an error and changes it. When running the code with ```bash test.sh``` again, the student sees this. The code has succesfully been debugged!
 
 
-```[cs15lsp23cv@ieng6-202]:lab7:514$ bash test.sh
+```
+[cs15lsp23cv@ieng6-202]:lab7:514$ bash test.sh
 JUnit version 4.13.2
 ..
 Time: 0.018
@@ -112,7 +116,8 @@ The error the student spotted did have something to do with how the arrays were 
 
 To summarize the changes that needed to be made to the merge method in order for the tests to work, the code had to go from this initially
 
-```static List<String> merge(List<String> list1, List<String> list2) {
+```
+static List<String> merge(List<String> list1, List<String> list2) {
     List<String> result = new ArrayList<>();
     int index1 = 0, index2 = 0;
     while(index2 < list2.size() && index1 < list1.size()) {
@@ -144,7 +149,8 @@ When running the test using
 
 Both tests fail which shows that there is an issue that needs to be fixed. After the necessary changes are made to fix the code, it now looks like this...
 
-```static List<String> merge(List<String> list1, List<String> list2) {
+```
+static List<String> merge(List<String> list1, List<String> list2) {
     List<String> result = new ArrayList<>();
     int index1 = 0, index2 = 0;
     while(index1 < list1.size() && index2 < list2.size()) {
