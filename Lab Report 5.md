@@ -85,3 +85,101 @@ Can you help me find what part of the code is causing the issue? I am really stu
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+A TA sees the post and responds to this post...
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Hello,
+
+As you can see from your output, there must be an issue with how the two arrays are being compared before they are being merged. Have you checked the use of ```compareTo``` in the ```merge``` method? Check ofn this fixes the problem and feel free to post again if this still doesn't fix the issue.
+
+-TA
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+After looking at the code, the student spots an error and changes it. When running the code with ```bash test.sh``` again, the student sees this. The code has succesfully been debugged!
+
+```
+[cs15lsp23cv@ieng6-202]:lab7:514$ bash test.sh
+JUnit version 4.13.2
+..
+Time: 0.018
+
+OK (2 tests)
+```
+
+The error the student spotted did have something to do with how the arrays were being compared. The TA was accurate with spotting where the bug was located. In the if statement, the lists were being compared backwards. To change this, the student had to swap the comparison from ```list2.get(index2)``` and ```list1.get(index1)```.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+To summarize the changes that needed to be made to the merge method in order for the tests to work, the code had to go from this initially... 
+
+```
+static List<String> merge(List<String> list1, List<String> list2) {
+    List<String> result = new ArrayList<>();
+    int index1 = 0, index2 = 0;
+    while(index2 < list2.size() && index1 < list1.size()) {
+      if(list1.get(index1).compareTo(list2.get(index2)) < 0) {
+        result.add(list1.get(index1));
+        index1 += 1;
+      }
+      else {
+        result.add(list2.get(index2));
+        index2 += 1;
+      }
+    }
+    while(index1 < list1.size()) {
+      result.add(list1.get(index1));
+      index1 += 1;
+    }
+    while(index2 < list2.size()) {
+      result.add(list2.get(index2));
+      // change index1 below to index2 to fix test
+      index2 += 1;
+    }
+    return result;
+  }
+```
+
+When running the test using 
+
+```$ bash test.sh```
+
+Both tests fail which shows that there is an issue that needs to be fixed. After the necessary changes are made to fix the code, it now looks like this...
+
+```
+static List<String> merge(List<String> list1, List<String> list2) {
+    List<String> result = new ArrayList<>();
+    int index1 = 0, index2 = 0;
+    while(index1 < list1.size() && index2 < list2.size()) {
+      if(list1.get(index1).compareTo(list2.get(index2)) < 0) {
+        result.add(list1.get(index1));
+        index1 += 1;
+      }
+      else {
+        result.add(list2.get(index2));
+        index2 += 1;
+      }
+    }
+    while(index1 < list1.size()) {
+      result.add(list1.get(index1));
+      index1 += 1;
+    }
+    while(index2 < list2.size()) {
+      result.add(list2.get(index2));
+      // change index1 below to index2 to fix test
+      index2 += 1;
+    }
+    return result;
+  }
+```
+
+The changes are compliled and tested by using the commmand.
+
+```$ bash test.sh```
+
+And we can see that the bug has been fixed marking the end of the debugging process!
+
+__Part 2: Reflection__
+
+I would say the most interesting thing that I have learned during the second half of the quarter was how to use Vim to edit within the command line.
