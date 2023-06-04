@@ -58,28 +58,27 @@ public class ListExamplesTests {
 As you can see "a" is the expected value for both, but we are instead getting "x" for the first one, and "c" for the second one. Here's the code being run for the merge method
 
 ```
-
 static List<String> merge(List<String> list1, List<String> list2) {
     List<String> result = new ArrayList<>();
     int index1 = 0, index2 = 0;
     while(index1 < list1.size() && index2 < list2.size()) {
-      if(list2.get(index2).compareTo(list1.get(index1)) < 0) {
-        result.add(list1.get(index1));
-        index1 += 1;
-      }
-      else {
-        result.add(list2.get(index2));
-        index2 += 1;
-      }
+        if(list2.get(index2).compareTo(list1.get(index1)) < 0) {
+                result.add(list1.get(index1));
+                index1 += 1;
+        }
+        else {
+                result.add(list2.get(index2));
+                index2 += 1;
+        }
     }
     while(index1 < list1.size()) {
-      result.add(list1.get(index1));
-      index1 += 1;
+        result.add(list1.get(index1));
+        index1 += 1;
     }
     while(index2 < list2.size()) {
-      result.add(list2.get(index2));
+        result.add(list2.get(index2));
       // change index1 below to index2 to fix test
-      index2 += 1;
+        index2 += 1;
     }
     return result;
 }
