@@ -1,135 +1,185 @@
 __Name: Xavier Navarro__
 
-__CSE 15L Lab Report 4__
+__CSE 15L Lab Report 5__
 
-In this lab report, I will be going over the key strokes needed to complete steps 4 through 9 on the timed section.
+In this lab report, I am doing to demonstrate the process of asking help for debugging. This is a process that we all have/had to go through before. Here is a demonstration of how this process should look like.
 
-__Steps 1 - 3: Setup__
+__Part 1: Debugging Scenario__
 
-Before starting, make sure that are using a new fork of the ```lab7``` repository. If you already have a fork, delete and re-fork the repository. Now, we are ready to walk through all the steps of the times section!
+A student is having trouble with testing some code and decides to ask this on EdStem...
 
-NOTE: Make sure that you have set up generating ssh keys for both ieng6 and github! This will make your life easier and is required to push any changes made to github.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-(image of forked repository)
+__What environment are you using (computer, operating system, web browser, terminal/editor, and so on)?__
 
-![Image](2023-05-20 (11).png)
+I am currently using a Windows computer (Dell XPS). I use the editor from VSCode with which I also use the terminal for bash.
 
-__Step 4: Log into ieng6__
+__Detail the symptom you're seeing. Be specific; include both what you're seeing and what you expected to see instead. Screenshots are great, copy-pasted terminal output is also great. Avoid saying “it doesn't work”.__
 
-First, you must log into your account using ```ssh```.
+Here is the output of the code when I run it:
 
-_Key Stroke_
+[cs15lsp23cv@ieng6−202]:lab7:515 bash test.sh 
 
-```<s> <s> <h> <space> <ctrl-c> <ctrl-v> <enter> <ctrl-c> <ctrl-v> <enter>``` 
+JUnit version 4.13.2 .E.E Time: 0.017 There were 2 failures:
 
-Starts the ```ssh``` command to log in, copy and paste both the ieng6 account, and password.
+testMerge1(ListExamplesTests) arrays first differed at element [0]; expected:<[a]> but was:<[x]> at org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:78) at org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:28) at org.junit.Assert.internalArrayEquals(Assert.java:534) at org.junit.Assert.assertArrayEquals(Assert.java:285) at org.junit.Assert.assertArrayEquals(Assert.java:300) at ListExamplesTests.testMerge1(ListExamplesTests.java:12) ... 9 trimmed Caused by: org.junit.ComparisonFailure: expected:<[a]> but was:<[x]> at org.junit.Assert.assertEquals(Assert.java:117) at org.junit.Assert.assertEquals(Assert.java:146) at org.junit.internal.ExactComparisonCriteria.assertElementsEqual(ExactComparisonCriteria.java:8) at org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:76) ... 15 more
 
-_Entire Command_
+testMerge2(ListExamplesTests) arrays first differed at element [0]; expected:<[a]> but was:<[c]> at org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:78) at org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:28) at org.junit.Assert.internalArrayEquals(Assert.java:534) at org.junit.Assert.assertArrayEquals(Assert.java:285) at org.junit.Assert.assertArrayEquals(Assert.java:300) at ListExamplesTests.testMerge2(ListExamplesTests.java:19) ... 9 trimmed Caused by: org.junit.ComparisonFailure: expected:<[a]> but was:<[c]> at org.junit.Assert.assertEquals(Assert.java:117) at org.junit.Assert.assertEquals(Assert.java:146) at org.junit.internal.ExactComparisonCriteria.assertElementsEqual(ExactComparisonCriteria.java:8) at org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:76) ... 15 more
 
-```$ ssh cs15lsp23cv@ieng6.ucsd.edu```
-  
-(shows successful log in)
+FAILURES!!! Tests run: 2, Failures: 2
 
-![Image](2023-05-20 (12).png)
+There seems to be issues with the code at the first element of the array. Both tests expected a in the first slot of the array, but instead it was x and c respectively that was found in index 0 of the array during the test.
 
-__Step 5: Cloning the Repository__
+__Detail the failure-inducing input and context. That might mean any or all of the command you're running, a test case, command-line arguments, working directory, even the last few commands you ran. Do your best to provide as much context as you can.__
 
-In order to clone the repository, we need to use the ```git clone``` command and get access to the forked repository. This will clone the directory which you can now access through bash.
+Here is the code that was being run with the $ bash test.sh command that I used for the test.
 
-_Key Stroke_
+```public class ListExamplesTests {
+        @Test(timeout = 500)
+        public void testMerge1() {
+                List<String> l1 = new ArrayList<String>(Arrays.asList("x", "y"));
+                List<String> l2 = new ArrayList<String>(Arrays.asList("a", "b"));
+                assertArrayEquals(new String[]{ "a", "b", "x", "y"}, ListExamples.merge(l1, l2).toArray());
+        }
 
-```<g> <i> <t> <space> <c> <l> <o> <n> <e> <space> <ctrl-c> <ctrl-v> <enter>```
+        @Test(timeout = 500)
+        public void testMerge2() {
+                List<String> l1 = new ArrayList<String>(Arrays.asList("a", "b", "c"));
+                List<String> l2 = new ArrayList<String>(Arrays.asList("c", "d", "e"));
+                assertArrayEquals(new String[]{ "a", "b", "c", "c", "d", "e" }, ListExamples.merge(l1, l2).toArray());
+        }
 
-Acesses the empty git clone ```git clone```, then copy and paste path the forked repository with ssh```git@github.com:ksirx/lab7.git```.
+}
+```
 
-_Entire command_
+As you can see "a" is the expected value for both, but we are instead getting "x" for the first one, and "c" for the second one. Here's the code being run for the merge method...
 
-```$ git clone git@github.com:ksirx/lab7.git```
+```
+static List<String> merge(List<String> list1, List<String> list2) {
+    List<String> result = new ArrayList<>();
+    int index1 = 0, index2 = 0;
+    while(index1 < list1.size() && index2 < list2.size()) {
+      if(list2.get(index2).compareTo(list1.get(index1)) < 0) {
+        result.add(list1.get(index1));
+        index1 += 1;
+      }
+      else {
+        result.add(list2.get(index2));
+        index2 += 1;
+      }
+    }
+    while(index1 < list1.size()) {
+      result.add(list1.get(index1));
+      index1 += 1;
+    }
+    while(index2 < list2.size()) {
+      result.add(list2.get(index2));
+      // change index1 below to index2 to fix test
+      index2 += 1;
+    }
+    return result;
+  }
+  ```
 
-(image of 'cloning lab7')
+Can you help me find what part of the code is causing the issue? I am really stuck and unsure of the changes that need to be made for the code to run as intended.
 
-![Image](2023-05-20 (13).png)
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-__Step 6: Run initial tests__
+A TA sees the post and responds to this post...
 
-We want to run the JUnit tests which will test the java files to see if the pass on the initial try.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-_Key Stroke_
+Hello,
 
-```<c> <d> <space> <l> <tab> <enter> <ctrl-c> <ctrl-v> <enter> <ctrl-c> <ctrl-v> <space> <L> <tab> <T> <tab> <tab> <enter>```
+As you can see from your output, there must be an issue with how the two arrays are being compared before they are being merged. Have you checked the use of ```compareTo``` in the ```merge``` method? Check ofn this fixes the problem and feel free to post again if this still doesn't fix the issue.
 
-Goes into the ```lab7``` directory, copy and paste the javac command from the lab 7 write up, then copy and paste java command from lab 7 write up and add ```ListExamplesTests``` to the end run.
+-TA
 
-_Entire command_
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-```$ javac -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar *.java```
+After looking at the code, the student spots an error and changes it. When running the code with ```bash test.sh``` again, the student sees this. The code has succesfully been debugged!
 
-```$ java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore ListExamplesTests```
+```
+[cs15lsp23cv@ieng6-202]:lab7:514$ bash test.sh
+JUnit version 4.13.2
+..
+Time: 0.018
 
-(image of tests failed)
+OK (2 tests)
+```
 
-![Image](2023-05-20 (14).png)
+The error the student spotted did have something to do with how the arrays were being compared. The TA was accurate with spotting where the bug was located. In the if statement, the lists were being compared backwards. To change this, the student had to swap the comparison from ```list2.get(index2)``` and ```list1.get(index1)```.
 
-__Step 7: Edit code__
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-We need to access the code in ```ListExamples.java``` using vim and replace ```index1``` with ```index2``` in the final loop of merge.
+To summarize the changes that needed to be made to the merge method in order for the tests to work, the code had to go from this initially... 
 
-_Key Stroke_
+```
+static List<String> merge(List<String> list1, List<String> list2) {
+    List<String> result = new ArrayList<>();
+    int index1 = 0, index2 = 0;
+    while(index2 < list2.size() && index1 < list1.size()) {
+      if(list1.get(index1).compareTo(list2.get(index2)) < 0) {
+        result.add(list1.get(index1));
+        index1 += 1;
+      }
+      else {
+        result.add(list2.get(index2));
+        index2 += 1;
+      }
+    }
+    while(index1 < list1.size()) {
+      result.add(list1.get(index1));
+      index1 += 1;
+    }
+    while(index2 < list2.size()) {
+      result.add(list2.get(index2));
+      // change index1 below to index2 to fix test
+      index2 += 1;
+    }
+    return result;
+  }
+```
 
-```<v> <i> <m> <space> <L> <tab> <.> <tab> <enter> </> <i> <n> <d> <e> <x> <1> <enter> <shift-n> <e> <x> <i> <2> <Esc> <:> <w> <q> <enter>```
+When running the test using 
 
-Uses the ```vim``` command to open the file, ```tab``` to fill in wanted file, ```/``` to search, ```<shift-n>``` to find last instance of term, ```e``` to go to end of word, ```x``` to remove number at end, ```i``` to enter insert mode, ```Esc``` to exit insert mode, and ```:wq``` to save and quit.
+```$ bash test.sh```
 
-_Entire Command_
+Both tests fail which shows that there is an issue that needs to be fixed. After the necessary changes are made to fix the code, it now looks like this...
 
-```vim ListExamples.java```
-  
-(image of file opened inside vim)
+```
+static List<String> merge(List<String> list1, List<String> list2) {
+    List<String> result = new ArrayList<>();
+    int index1 = 0, index2 = 0;
+    while(index1 < list1.size() && index2 < list2.size()) {
+      if(list1.get(index1).compareTo(list2.get(index2)) < 0) {
+        result.add(list1.get(index1));
+        index1 += 1;
+      }
+      else {
+        result.add(list2.get(index2));
+        index2 += 1;
+      }
+    }
+    while(index1 < list1.size()) {
+      result.add(list1.get(index1));
+      index1 += 1;
+    }
+    while(index2 < list2.size()) {
+      result.add(list2.get(index2));
+      // change index1 below to index2 to fix test
+      index2 += 1;
+    }
+    return result;
+  }
+```
 
-![Image](2023-05-20 (6).png)
-  
-__Step 8: Run tests again__
-  
-We need to run the tests again to see if the change we made will make the test pass this time around.
-  
-_Key Stroke_
-  
-```<ctrl-c> <ctrl-v> <enter> <ctrl-c> <ctrl-v> <space> <L> <tab> <T> <tab> <enter>```
-  
-Run the same tests as step 6.
-  
-_Entire Command_
-  
-```$ javac -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar *.java```
+The changes are compliled and tested by using the commmand.
 
-```$ java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore ListExamplesTests```
-  
-(image of test passing)
+```$ bash test.sh```
 
-![Image](2023-05-20 (15).png)
-  
-__Step 9: Commit and push to github account__
-  
-We now need to run some commands in order to save the changes that we have made to our github account.
+And we can see that the bug has been fixed marking the end of the debugging process!
 
-_Key Stroke_
-  
-```<g> <i> <t> <space> <a> <d> <tab> <L> <tab> <.> <j> <tab> <enter> <g> <i> <t> <space> <c> <o> <m> <tab> <-> <m> <"> <n> <e> <w> <"> <enter> <g> <i> <t> <space> <p> <u> <s> <tab> <enter> ``` 
-  
-Using a combination of 3 commands. ```git add``` indicates which files have been changed.```git commit``` creates a snapshot of all the changes within the repository. ```git push``` pushes the changes to github.
+__Part 2: Reflection__
 
-_Entire Command_
-  
-```$ git add ListExamples.java```
-  
-```$ git commit -m "new"```
-  
-```$ git push```
-  
-(image of three commands)
-
-![Image](2023-05-20 (16).png)
-
-__Conclusion__
-
-Everything now works as intended!
+I would say the most interesting thing that I have learned during the second half of the quarter was how to use Vim to edit within the command line. The feel when editing in Vim is interesting when compared to what I am used to using in VSCode. I could see how Vim could be more efficient when you really learn the key binds, but there is a considerable skill curve to really become profient in using it. Also, bash commands were cool to learn aswell. There are so many shortcuts to learn and different options you can apply that you learn something new everytime you use it. One use in particular that I used was ``rm -rf``` which I used to delete repositories within my account through the command line.
