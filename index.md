@@ -102,6 +102,7 @@ As you can see from your output, there must be an issue with how the two arrays 
 
 After looking at the code, the student spots an error and changes it. When running the code with ```bash test.sh``` again, the student sees this. The code has succesfully been debugged!
 
+```
 
 [cs15lsp23cv@ieng6-202]:lab7:514$ bash test.sh
 JUnit version 4.13.2
@@ -109,8 +110,9 @@ JUnit version 4.13.2
 Time: 0.018
 
 OK (2 tests)
+```
 
-The error the student spotted did have something to do with how the arrays were being compared. The TA was accurate with spotting where the bug was located. In the if statement, the lists were being compared backwards. To change this, the student had to swap the comparison from list2.get(index2) and list1.get(index1)
+The error the student spotted did have something to do with how the arrays were being compared. The TA was accurate with spotting where the bug was located. In the if statement, the lists were being compared backwards. To change this, the student had to swap the comparison from ```list2.get(index2)``` and ```list1.get(index1)```
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -146,7 +148,7 @@ static List<String> merge(List<String> list1, List<String> list2) {
 
 When running the test using 
 
-$ bash test.sh
+```$ bash test.sh```
 
 Both tests fail which shows that there is an issue that needs to be fixed. After the necessary changes are made to fix the code, it now looks like this...
 
@@ -180,10 +182,10 @@ static List<String> merge(List<String> list1, List<String> list2) {
 
 The changes are compliled and tested by using the commmand.
 
-$ bash test.sh
+```$ bash test.sh```
 
 And we can see that the bug has been fixed marking the end of the debugging process!
 
 __Part 2: Reflection__
 
-I would say the most interesting thing that I have learned during the second half of the quarter was how to use Vim to edit within the command line. The feel when editing in Vim is interesting when compared to what I am used to using in VSCode. I could see how Vim could be more efficient when you really learn the key binds, but there is a considerable skill curve to really become profient in using it. Also, bash commands were cool to learn aswell. There are so many shortcuts to learn and different options you can apply that you learn something new everytime you use it. One use in particular that I used was rm -rf which I used to delete repositories within my account through the command line.
+I would say the most interesting thing that I have learned during the second half of the quarter was how to use Vim to edit within the command line. The feel when editing in Vim is interesting when compared to what I am used to using in VSCode. I could see how Vim could be more efficient when you really learn the key binds, but there is a considerable skill curve to really become profient in using it. Also, bash commands were cool to learn aswell. There are so many shortcuts to learn and different options you can apply that you learn something new everytime you use it. One use in particular that I used was ```rm -rf``` which I used to delete repositories within my account through the command line.
