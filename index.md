@@ -18,8 +18,7 @@ __Detail the symptom you're seeing. Be specific; include both what you're seeing
 
 Here is the output of the code when I run it:
 
-```
-[cs15lsp23cv@ieng6−202]:lab7:515 bash test.sh 
+```[cs15lsp23cv@ieng6−202]:lab7:515 bash test.sh 
 
 JUnit version 4.13.2 .E.E Time: 0.017 There were 2 failures:
 
