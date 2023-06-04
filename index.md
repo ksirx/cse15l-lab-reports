@@ -26,8 +26,7 @@ testMerge1(ListExamplesTests) arrays first differed at element [0]; expected:<[a
 
 testMerge2(ListExamplesTests) arrays first differed at element [0]; expected:<[a]> but was:<[c]> at org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:78) at org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:28) at org.junit.Assert.internalArrayEquals(Assert.java:534) at org.junit.Assert.assertArrayEquals(Assert.java:285) at org.junit.Assert.assertArrayEquals(Assert.java:300) at ListExamplesTests.testMerge2(ListExamplesTests.java:19) ... 9 trimmed Caused by: org.junit.ComparisonFailure: expected:<[a]> but was:<[c]> at org.junit.Assert.assertEquals(Assert.java:117) at org.junit.Assert.assertEquals(Assert.java:146) at org.junit.internal.ExactComparisonCriteria.assertElementsEqual(ExactComparisonCriteria.java:8) at org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:76) ... 15 more
 
-FAILURES!!! Tests run: 2, Failures: 2
-```
+FAILURES!!! Tests run: 2, Failures: 2```
 
 There seems to be issues with the code at the first element of the array. Both tests expected a in the first slot of the array, but instead it was x and c respectively that was found in index 0 of the array during the test.
 
@@ -48,9 +47,7 @@ Here is the code that was being run with the $ bash test.sh command that I used 
                 List<String> l2 = new ArrayList<String>(Arrays.asList("c", "d", "e"));
                 assertArrayEquals(new String[]{ "a", "b", "c", "c", "d", "e" }, ListExamples.merge(l1, l2).toArray());
         }
-}
-```
-
+}```
 
 As you can see "a" is the expected value for both, but we are instead getting "x" for the first one, and "c" for the second one. Here's the code being run for the merge method
 
@@ -77,8 +74,7 @@ As you can see "a" is the expected value for both, but we are instead getting "x
       index2 += 1;
     }
     return result;
-}
-```
+}```
 
 Can you help me find what part of the code is causing the issue? I am really stuck and unsure of the changes that need to be made for the code to run as intended.
 
@@ -104,8 +100,7 @@ JUnit version 4.13.2
 ..
 Time: 0.018
 
-OK (2 tests)
-```
+OK (2 tests)```
 
 The error the student spotted did have something to do with how the arrays were being compared. The TA was accurate with spotting where the bug was located. In the if statement, the lists were being compared backwards. To change this, the student had to swap the comparison from ```list2.get(index2)``` and ```list1.get(index1)```.
 
@@ -136,8 +131,7 @@ To summarize the changes that needed to be made to the merge method in order for
       index2 += 1;
     }
     return result;
-  }
-  ```
+  }```
 
 When running the test using 
 
@@ -168,8 +162,7 @@ Both tests fail which shows that there is an issue that needs to be fixed. After
       index2 += 1;
     }
     return result;
-  }
-  ```
+  }```
 
 The changes are compliled and tested by using the commmand.
 
