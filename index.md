@@ -34,7 +34,7 @@ __Detail the failure-inducing input and context. That might mean any or all of t
 
 Here is the code that was being run with the $ bash test.sh command that I used for the test.
 
-```public class ListExamplesTests {
+public class ListExamplesTests {
         @Test(timeout = 500)
         public void testMerge1() {
                 List<String> l1 = new ArrayList<String>(Arrays.asList("x", "y"));
@@ -49,13 +49,12 @@ Here is the code that was being run with the $ bash test.sh command that I used 
                 assertArrayEquals(new String[]{ "a", "b", "c", "c", "d", "e" }, ListExamples.merge(l1, l2).toArray());
         }
 
-}```
+}
 
 
 As you can see "a" is the expected value for both, but we are instead getting "x" for the first one, and "c" for the second one. Here's the code being run for the merge method
 
-
-```static List<String> merge(List<String> list1, List<String> list2) {
+static List<String> merge(List<String> list1, List<String> list2) {
     List<String> result = new ArrayList<>();
     int index1 = 0, index2 = 0;
     while(index1 < list1.size() && index2 < list2.size()) {
@@ -78,8 +77,7 @@ As you can see "a" is the expected value for both, but we are instead getting "x
       index2 += 1;
     }
     return result;
-  }
-  ```
+}
 
 Can you help me find what part of the code is causing the issue? I am really stuck and unsure of the changes that need to be made for the code to run as intended.
 
