@@ -16,7 +16,7 @@ I am currently using a Windows computer (Dell XPS). I use the editor from VSCode
 
 __Detail the symptom you're seeing. Be specific; include both what you're seeing and what you expected to see instead. Screenshots are great, copy-pasted terminal output is also great. Avoid saying “it doesn't work”.__
 
-Here is the output of the code when I run it:
+```Here is the output of the code when I run it:
 
 [cs15lsp23cv@ieng6−202]:lab7:515 bash test.sh 
 
@@ -26,7 +26,7 @@ testMerge1(ListExamplesTests) arrays first differed at element [0]; expected:<[a
 
 testMerge2(ListExamplesTests) arrays first differed at element [0]; expected:<[a]> but was:<[c]> at org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:78) at org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:28) at org.junit.Assert.internalArrayEquals(Assert.java:534) at org.junit.Assert.assertArrayEquals(Assert.java:285) at org.junit.Assert.assertArrayEquals(Assert.java:300) at ListExamplesTests.testMerge2(ListExamplesTests.java:19) ... 9 trimmed Caused by: org.junit.ComparisonFailure: expected:<[a]> but was:<[c]> at org.junit.Assert.assertEquals(Assert.java:117) at org.junit.Assert.assertEquals(Assert.java:146) at org.junit.internal.ExactComparisonCriteria.assertElementsEqual(ExactComparisonCriteria.java:8) at org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:76) ... 15 more
 
-FAILURES!!! Tests run: 2, Failures: 2
+FAILURES!!! Tests run: 2, Failures: 2```
 
 There seems to be issues with the code at the first element of the array. Both tests expected a in the first slot of the array, but instead it was x and c respectively that was found in index 0 of the array during the test.
 
