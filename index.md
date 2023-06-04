@@ -49,13 +49,11 @@ Here is the code that was being run with the $ bash test.sh command that I used 
                 assertArrayEquals(new String[]{ "a", "b", "c", "c", "d", "e" }, ListExamples.merge(l1, l2).toArray());
         }
 
-}
-```
+}```
 
-As you can see "a" is the expected value for both, but we are instead getting "x" for the first one, and "c" for the second one. Here's the code being run for the merge method...
+As you can see "a" is the expected value for both, but we are instead getting "x" for the first one, and "c" for the second one. Here's the code being run for the merge method
 
-```
-static List<String> merge(List<String> list1, List<String> list2) {
+```static List<String> merge(List<String> list1, List<String> list2) {
     List<String> result = new ArrayList<>();
     int index1 = 0, index2 = 0;
     while(index1 < list1.size() && index2 < list2.size()) {
@@ -85,7 +83,7 @@ Can you help me find what part of the code is causing the issue? I am really stu
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-A TA sees the post and responds to this post...
+A TA sees the post and responds to this post
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -112,10 +110,9 @@ The error the student spotted did have something to do with how the arrays were 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-To summarize the changes that needed to be made to the merge method in order for the tests to work, the code had to go from this initially... 
+To summarize the changes that needed to be made to the merge method in order for the tests to work, the code had to go from this initially
 
-```
-static List<String> merge(List<String> list1, List<String> list2) {
+```static List<String> merge(List<String> list1, List<String> list2) {
     List<String> result = new ArrayList<>();
     int index1 = 0, index2 = 0;
     while(index2 < list2.size() && index1 < list1.size()) {
@@ -138,8 +135,7 @@ static List<String> merge(List<String> list1, List<String> list2) {
       index2 += 1;
     }
     return result;
-  }
-```
+  }```
 
 When running the test using 
 
@@ -147,8 +143,7 @@ When running the test using
 
 Both tests fail which shows that there is an issue that needs to be fixed. After the necessary changes are made to fix the code, it now looks like this...
 
-```
-static List<String> merge(List<String> list1, List<String> list2) {
+```static List<String> merge(List<String> list1, List<String> list2) {
     List<String> result = new ArrayList<>();
     int index1 = 0, index2 = 0;
     while(index1 < list1.size() && index2 < list2.size()) {
@@ -171,8 +166,7 @@ static List<String> merge(List<String> list1, List<String> list2) {
       index2 += 1;
     }
     return result;
-  }
-```
+  }```
 
 The changes are compliled and tested by using the commmand.
 
